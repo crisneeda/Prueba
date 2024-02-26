@@ -1,7 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using Prueba.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//Metodo para "heredar" contextos
+builder.Services.AddDbContext<Contexto_1>((options) =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ConexionAzure"));
+});
+
+
 
 var app = builder.Build();
 
