@@ -15,7 +15,6 @@ namespace Prueba.Helpers
             var credenciales = new StorageSharedKeyCredential(config.Cuenta, config.Llave); var cliente = new BlobClient(uri, credenciales);
             await cliente.UploadAsync(contenido);
             return url;
-
         }
     }
 }
